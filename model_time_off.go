@@ -32,7 +32,7 @@ type TimeOff struct {
 	// The number of time off units requested.
 	Amount NullableFloat32 `json:"amount,omitempty"`
 	// The type of time off request.
-	RequestType NullableRequestTypeEnum `json:"request_type,omitempty"`
+	RequestType NullableString `json:"request_type,omitempty"`
 	// The day and time of the start of the time requested off.
 	StartTime NullableTime `json:"start_time,omitempty"`
 	// The day and time of the end of the time requested off.
@@ -385,25 +385,6 @@ func (o *TimeOff) UnsetAmount() {
 	o.Amount.Unset()
 }
 
-// GetRequestType returns the RequestType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TimeOff) GetRequestType() RequestTypeEnum {
-	if o == nil || o.RequestType.Get() == nil {
-		var ret RequestTypeEnum
-		return ret
-	}
-	return *o.RequestType.Get()
-}
-
-// GetRequestTypeOk returns a tuple with the RequestType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TimeOff) GetRequestTypeOk() (*RequestTypeEnum, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.RequestType.Get(), o.RequestType.IsSet()
-}
-
 // HasRequestType returns a boolean if a field has been set.
 func (o *TimeOff) HasRequestType() bool {
 	if o != nil && o.RequestType.IsSet() {
@@ -411,15 +392,6 @@ func (o *TimeOff) HasRequestType() bool {
 	}
 
 	return false
-}
-
-// SetRequestType gets a reference to the given NullableRequestTypeEnum and assigns it to the RequestType field.
-func (o *TimeOff) SetRequestType(v RequestTypeEnum) {
-	o.RequestType.Set(&v)
-}
-// SetRequestTypeNil sets the value for RequestType to be an explicit nil
-func (o *TimeOff) SetRequestTypeNil() {
-	o.RequestType.Set(nil)
 }
 
 // UnsetRequestType ensures that no value is present for RequestType, not even an explicit nil
